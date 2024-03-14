@@ -1,27 +1,34 @@
 <script setup>
 import HeaderBar from '@/Components/HeaderBar.vue';
 import {Head} from '@inertiajs/vue3'
+
+import {Link} from '@inertiajs/vue3'
+
+const props = defineProps({
+    creditor: Array
+})
 </script>
 
 <template>
     <Head title="Creditors" />
     <HeaderBar/>
-    <div class="w-[1020px] mx-auto py-8">
-        <div class="flex">
-            <h2 class="text-4xl">List of Creditors</h2>
-            <a href="" class="p-x4 py-2 bg-blue-700 rounded">Create Creditor</a>
-        </div>
-        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-            <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Read more
-                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+    <div class="py-5">
+        <h2 class="text-4xl text-center">List of Creditors</h2>
+    </div>
+    <div class="w-screen flex flex-wrap gap-8 justify-center">
+        <div v-for="c in creditor" :key="c.id" class="max-w-sm p-5 border-8 rounded-3xl shadow">
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 25" stroke-width="1.5" stroke="currentColor" class="w-15 h-10">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                 </svg>
-            </a>
+
+                <h5 class="text-2xl font-bold">{{c.last_name}}, {{ c.first_name }}</h5>
+            </div>
+            <p class="mb-3 font-normal text-black">Address: {{ c.address }}</p>
+            <p class="mb-3 font-normal text-black italic">Credit Limit: {{ c.credit_limit }}</p>
+            <Link href="/Creditors/Show" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                View
+            </Link>
         </div>
     </div>
 </template>

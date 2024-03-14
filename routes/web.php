@@ -31,9 +31,13 @@ Route::get('/', function() {
     return Inertia::render('Landing');
 });
 
-Route::get('/creditors/create', [CreditorController::class, 'create']);
-Route::get('/creditors', [CreditorController::class, 'index']);
+
+Route::get('/Creditors/create', [CreditorController::class, 'create']);
+Route::get('/creditors', [CreditorController::class, 'Index']);
+Route::get('/Creditors/Show', [CreditorController::class, 'Show']);
 
 Route::get('/about', function() {
     return Inertia::render('About');
 });
+
+
