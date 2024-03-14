@@ -13,6 +13,6 @@ class CreditorSeeder extends Seeder
      */
     public function run(): void
     {
-        Creditor::factor(100)->create();
+        Creditor::factory(100)->create();
     }
 }

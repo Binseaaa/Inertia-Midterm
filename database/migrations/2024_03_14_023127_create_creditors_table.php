@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('first_name');
             $table->string('gender', 6);
-            $table->date('birth_date');
+            $table->string('address');
             $table->string('phone');
-            $table->date('address');
+            $table->date('birth_date');
             $table->decimal('credit_limit', 10,2);
             $table->timestamps();
         });

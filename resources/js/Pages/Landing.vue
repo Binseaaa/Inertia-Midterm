@@ -6,7 +6,7 @@ import {Head} from '@inertiajs/vue3'
 <template>
     <Head title="Landing" />
     <HeaderBar/>
-    <div class="w-[1020px] mx-auto">
+    <div class="">
         <h1>Hello! This is the landing vue</h1>
     </div>
 </template>
